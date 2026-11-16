@@ -1,0 +1,148 @@
+/* Royalton v4: focused contrast, spacing and motion refinements. */
+:root{--ry-muted:#68615b;--ry-gold-text:#795017;--ry-space:clamp(56px,6.8vw,96px);--ry-ease:cubic-bezier(.22,.61,.36,1)}
+.ry{overflow-wrap:break-word}
+.ry h1,.ry h2,.ry h3{text-wrap:balance}
+.ry p{text-wrap:pretty}
+.ry .ry-head{gap:24px clamp(28px,4vw,64px);margin-bottom:clamp(28px,3.5vw,48px)}
+.ry .ry-h2{line-height:1.15}
+.ry .ry-split,.ry .ry-features,.ry .ry-offer,.ry .ry-chef{gap:clamp(28px,4.5vw,64px)}
+.ry figure{margin:0}
+.ry .ry-actions{margin-top:26px;gap:12px}
+.ry .ry-cta .ry-actions,.ry-footer .ry-actions{margin-top:0}
+.ry [id],.post_content [id]{scroll-margin-top:120px}
+/* Readable text on navy, including inherited links in the footer. */
+.ry.ry--navy,.ry.ry-footer{--ry-muted:#bdc6cc;--ry-gold-text:#f6b255}
+.ry.ry--navy .ry-facts span,.ry.ry--navy .ry-small,.ry.ry--navy .ry-reviews blockquote footer,.ry.ry--navy .ry-post__meta{color:#bdc6cc}
+.ry.ry--navy .ry-steps strong,.ry.ry--navy .ry-hallnav strong,.ry.ry--navy .ry-carousel__track strong{color:#fcfcfc}
+.ry.ry--navy .ry-steps li{border-color:#50606b}
+.ry.ry--navy .ry-steps li::before,.ry.ry--navy .ry-readmore{color:#f6b255}
+.ry.ry-footer a:not(.ry-btn){color:#dce2e6}
+.ry.ry-footer a:not(.ry-btn):hover,.ry.ry-footer a:not(.ry-btn):focus-visible{color:#f6b255}
+.ry-footer__bottom,.ry-footer__contact dt{color:#b7c2ca}
+.ry.ry-footer .ry-btn--ghost{color:#fff;border-color:#aebac3}
+.ry.ry-footer .ry-btn--ghost:hover{background:#fff;color:#221f1e}
+.ry .ry-stars{color:#87530f}
+.ry.ry--navy .ry-stars{color:#f6b255}
+.ry-marquee:not(.ry-marquee--navy) .ry-marquee__track span{color:#875c38}
+.ry-marquee--outline:not(.ry-marquee--navy) .ry-marquee__track span{-webkit-text-stroke:1px #875c38}
+/* Photo overlays protect the full title and copy, not only the bottom edge. */
+.ry-hero::after{background:linear-gradient(90deg,rgba(7,18,27,.68),rgba(7,18,27,.24)),linear-gradient(180deg,rgba(7,18,27,.48),rgba(7,18,27,.34) 36%,rgba(7,18,27,.74))}
+.ry-hero{min-height:clamp(600px,90svh,900px)}
+.ry-hero--short{min-height:clamp(500px,70svh,720px)}
+.ry-hero .ry-h1{font-size:clamp(38px,5.5vw,78px);line-height:1.08;max-width:17ch}
+.ry-hero--short .ry-h1{font-size:clamp(36px,4.8vw,66px);max-width:21ch}
+.ry-hero .ry-lead,.ry-hero .ry-crumbs,.ry-hero .ry-crumbs a,.ry-hero .ry-post__meta{color:#fff}
+.ry-hero .ry-lead{max-width:55ch;text-shadow:0 1px 12px #07121b60}
+.ry-hero .ry-btn--ghost{background:#0e202d66;color:#fff;border-color:#e3e8ec}
+.ry-hero .ry-btn--ghost:hover{background:#fff;color:#221f1e}
+.ry-hero__inner{padding-bottom:clamp(52px,6vw,84px)}
+.ry .ry-cards--overlay .ry-card::before{background:linear-gradient(180deg,rgba(7,18,27,.16),rgba(7,18,27,.66) 45%,rgba(7,18,27,.94))}
+.ry .ry-cards--overlay .ry-card p{color:#fff}
+.ry .ry-cards--overlay .ry-card{padding:clamp(24px,2.6vw,36px)}
+/* The short, plain sections get clearer hierarchy without new content. */
+.ry .ry-reviews{gap:clamp(24px,3vw,40px)}
+.ry .ry-reviews blockquote{border-top:2px solid #ab7737;padding-top:24px!important}
+.ry .ry-reviews blockquote p{line-height:1.6}
+.ry .ry-reviews blockquote footer{margin-top:20px;font-weight:500}
+.ry .ry-hall{gap:clamp(28px,4.5vw,64px);padding-block:clamp(40px,5vw,72px);align-items:center}
+.ry .ry-hall__media img{aspect-ratio:4/5}
+.ry .ry-hall__name{font-size:clamp(38px,5vw,68px);line-height:1.08}
+.ry .ry-cta{grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(24px,3vw,40px)}
+.ry .ry-cta .ry-actions{max-width:360px}
+.ry-section:has(.ry-cta){border-block:1px solid #35414b}
+.ry .ry-tabs__panel{padding:clamp(24px,3vw,40px);background:#fff;border:1px solid #d8cec3;border-top:2px solid #ab7737}
+.ry .ry-tabs__list{gap:4px;margin-bottom:24px}
+.ry .ry-tabs__list button{color:#60574e;line-height:1.3}
+.ry .ry-tabs__list button[aria-selected=true]{color:#221f1e;background:#efe4d8}
+.ry .ry-tabs__groups{gap:24px}
+.ry .ry-shop__item{display:flex;flex-direction:column;padding-bottom:24px;border-bottom:1px solid #d8cec3}
+.ry .ry-shop__row{margin-top:auto;padding-top:18px}
+.ry .ry-shop__cart,.ry .ry-tickets{border-top:3px solid #ab7737;box-shadow:0 14px 36px -26px #0e202d66}
+.ry .ry-shop__lines button{width:44px;height:44px}
+.ry .ry-form input,.ry .ry-form select,.ry .ry-form textarea{border-color:#8a8178}
+.ry .ry-form input::placeholder,.ry .ry-form textarea::placeholder{color:#68615b;opacity:1}
+.ry .ry-form input[type=checkbox]{width:20px;min-height:20px;height:20px;accent-color:#795017}
+.ry .ry-form-note{grid-column:1/-1}
+.ry .ry-faq summary{padding-block:22px;min-height:64px}
+.ry .ry-faq summary:hover,.ry .ry-faq details[open] summary{color:var(--ry-gold-text)}
+.ry .ry-faq details[open]>div{animation:none}
+.ry .ry-faq details>div{line-height:1.75;padding-right:24px}
+.ry .ry-filter button,.ry .ry-qty{border-color:#8a8178}
+.ry .ry-filter button:hover{background:#f4ece4}
+.ry .ry-filter button[aria-pressed=true]:hover{background:#221f1e}
+.ry .ry-qty button{flex-shrink:0}
+.ry-footer__main{padding-top:12px}
+.ry-footer__contact dd{overflow-wrap:anywhere}
+.ry-footer__word{font-size:clamp(48px,13vw,200px);line-height:1.05}
+.ry :focus-visible,.top_panel :focus-visible,.menu_mobile :focus-visible{outline:3px solid #b07827;outline-offset:4px}
+.ry.ry--navy :focus-visible,.ry-hero :focus-visible,.ry.ry-footer :focus-visible,.top_panel :focus-visible{outline-color:#f6b255}
+body.ry-over .top_panel .sub-menu{background:#fcf7f4!important;box-shadow:0 16px 36px #08141d33}
+body.ry-over .top_panel .sub-menu a{line-height:1.45;padding-block:12px}
+/* Remove double spacer padding in legacy sections, retain image compositions. */
+body.home .post_content .elementor-element-598fabf9{padding-block:28px!important}
+body.home .elementor-element-598fabf9 .elementor-widget-spacer,
+body.home .elementor-element-3375199 .elementor-widget-spacer{display:none}
+body.home .post_content .elementor-element-3375199{padding-block:clamp(40px,5vw,64px)!important}
+body.home .post_content .elementor-element-163d8a2{padding-top:0!important}
+.post_content .ry-empty-section{display:none!important}
+/* Existing light-theme text tokens were too pale for small text. */
+.post_content .scheme_default,.post_content .scheme_feldspar_light{--theme-color-text_light:#68615b;--theme-color-text_link:#795017;--theme-color-text_hover:#59370a}
+.post_content .scheme_dark{--theme-color-text_light:#bdc6cc}
+/* Native motion: low travel distance and one-time entrances. */
+.ry-js .ry-rv,.ry-js .ry-ew{transform:translate3d(0,22px,0);transition-duration:.8s;transition-timing-function:var(--ry-ease)}
+.ry-js .ry-rv.is-in,.ry-js .ry-ew.is-in{transform:none}
+.ry-js .ry-rv-img img{transform:scale(1.06);transition-duration:1s,1.2s;transition-timing-function:var(--ry-ease)}
+.ry-js .ry-rv-img.is-in img{transform:scale(1)}
+.ry .ry-btn{transition-duration:.3s;transition-timing-function:var(--ry-ease)}
+.ry .ry-card img,.ry .ry-gallery img{transition-timing-function:var(--ry-ease)}
+.ry .ry-cards--overlay .ry-card:hover img{transform:scale(1.035)}
+.ry .ry-wwd__d{max-height:none;opacity:1;transition:color .3s ease}
+.ry .ry-wwd__list a{padding-block:20px}
+.ry .ry-wwd__list a.is-on .ry-wwd__d{max-height:none;color:#e0e6eb}
+.ry-motion-toggle{position:absolute;right:var(--ry-gutter);top:140px;z-index:3;border:1px solid #acb7bf;border-radius:999px;background:#0e202de6;color:#fff;font:500 13px/1.2 var(--ry-body);padding:10px 15px;min-height:44px;cursor:pointer}
+@media(max-width:1000px){
+ .ry .ry-cta{grid-template-columns:auto minmax(0,1fr)}
+ .ry .ry-cta>.ry-actions{grid-column:2}
+ .ry .ry-hall__media img{aspect-ratio:4/3}
+ .ry .ry-head{align-items:start}
+}
+@media(max-width:760px){
+ .ry{font-size:16px}
+ .ry-hero,.ry-hero--short{min-height:580px;min-height:min(760px,90svh)}
+ .ry-hero__inner{padding-top:190px;padding-bottom:52px}
+ .ry-hero .ry-h1{font-size:clamp(34px,8.5vw,48px);max-width:22ch}
+ .ry-hero .ry-lead{font-size:17px;line-height:1.65}
+ .ry-hero::after{background:linear-gradient(180deg,#07121ba6,#07121b99 40%,#07121be6)}
+ .ry .ry-cards--social .ry-card,.ry .ry-cards--social .ry-card:nth-child(-n+2){min-height:380px}
+ .ry .ry-hallnav{gap:28px 16px}
+ .ry .ry-hallnav strong{font-size:22px}
+ .ry .ry-facts>div{padding:20px 16px}
+ .ry .ry-tabs__list button{padding:12px 14px;font-size:18px}
+ .ry .ry-tabs__groups{grid-template-columns:1fr}
+ .ry .ry-shop__cart,.ry .ry-tickets{padding:24px}
+ .ry-motion-toggle{top:116px;font-size:12px}
+ .ry-footer__word{padding-bottom:20px}
+}
+@media(max-width:560px){
+ .ry .ry-cta{grid-template-columns:1fr}
+ .ry .ry-cta>.ry-actions{grid-column:1;max-width:none}
+ .ry .ry-actions .ry-btn{max-width:100%;padding-inline:22px}
+ .ry .ry-shop__form{grid-template-columns:1fr}
+ .ry .ry-count{gap:16px;flex-wrap:wrap}
+ .ry .ry-count div{min-width:50px}
+ .ry .ry-details{grid-template-columns:1fr}
+ .ry .ry-details dt{border-bottom:0;padding-bottom:4px}
+ .ry .ry-details dd{padding-top:0}
+ .ry .ry-cap div+div{padding-left:14px}
+ .ry-footer__bottom ul{gap:14px 20px}
+ .ry .ry-carousel__track{grid-auto-columns:85%;gap:18px}
+}
+/* One unified pause state, also respects the operating system preference. */
+.ry-motion-paused .ry *,.ry-motion-paused .ry::before,.ry-motion-paused .ry *::after,.ry-motion-paused .ry-marquee__track{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ .ry *,.ry *::before,.ry *::after,.ry::before,.ry-marquee__track,.ry-footer__word{animation:none!important;transition:none!important}
+ .ry-js .ry-rv,.ry-js .ry-ew,.ry-js .ry-rv-img img,.ry-js .ry-rv-line::before{opacity:1!important;transform:none!important;clip-path:none!important}
+ .elementor-invisible{visibility:visible!important}
+ .ry-motion-toggle{display:none}
+}

@@ -1,0 +1,319 @@
+/* ==========================================================================
+   The Royalton v9 – card padding fixes, font consistency, richer motion.
+   Loaded last on every page.
+   ========================================================================== */
+
+/* ---------- Review cards: real inner padding, quote mark, clear attribution ---------- */
+.ry .ry-reviews{align-items:stretch}
+.ry .ry-reviews blockquote{
+  position:relative;display:flex!important;flex-direction:column;gap:14px;
+  padding:clamp(26px,2.6vw,38px) clamp(24px,2.4vw,34px) clamp(24px,2.4vw,32px)!important;
+  background:#fff!important;border:1px solid #E5DDD4!important;border-top:3px solid #DC9B42!important;border-radius:6px!important;
+  box-shadow:0 18px 40px -30px rgba(14,32,45,.35);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease;overflow:hidden}
+.ry .ry-reviews blockquote::before{content:""!important;display:block!important;position:absolute;right:24px;top:22px;width:46px;height:46px;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23DC9B42' d='M3 21c3 0 7-1 7-8V5H3v7h4c0 4-2 6-4 6v3zm11 0c3 0 7-1 7-8V5h-7v7h4c0 4-2 6-4 6v3z'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.18;pointer-events:none}
+.ry .ry-reviews blockquote p{margin:0!important;font-size:clamp(17px,1.35vw,19px)!important;line-height:1.6!important;color:#2E2A28!important;position:relative}
+.ry .ry-reviews blockquote footer{margin-top:auto!important;padding-top:16px!important;border-top:1px solid #EEE7E0;display:flex;align-items:center;gap:12px;font:500 15px/1.3 "DM Sans",sans-serif!important;color:#221F1E!important;letter-spacing:.01em}
+.ry .ry-reviews blockquote footer::before{content:""!important;display:inline-grid!important;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#F6B255,#DC9B42);flex:0 0 36px}
+.ry .ry-reviews blockquote .ry-stars{margin:0!important;color:#C9861F!important;font-size:16px;letter-spacing:4px}
+.ry .ry-reviews blockquote:hover{transform:translateY(-6px);box-shadow:0 30px 60px -32px rgba(14,32,45,.45)}
+.ry.ry--navy .ry-reviews blockquote{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.14)!important}
+.ry.ry--navy .ry-reviews blockquote p,.ry.ry--navy .ry-reviews blockquote footer{color:#F2F4F6!important}
+.ry.ry--navy .ry-reviews blockquote footer{border-top-color:rgba(255,255,255,.12)}
+
+/* ---------- Catering product cards: text and actions padded inside the card ---------- */
+.ry .ry-shop__item{padding:0 0 22px!important;overflow:hidden;border-radius:6px!important;display:flex!important;flex-direction:column;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.ry .ry-shop__item>.ry-zoom{margin:0 0 18px!important;border-radius:6px 6px 0 0;overflow:hidden}
+.ry .ry-shop__item>:not(.ry-zoom){margin-left:22px!important;margin-right:22px!important}
+.ry .ry-shop__item h3{margin-bottom:6px!important}
+.ry .ry-shop__item .ry-shop__row{margin-top:auto!important;padding-top:16px!important;border-top:1px solid #EEE7E0}
+.ry .ry-shop__item:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(14,32,45,.4)}
+.ry .ry-shop__cart{border-radius:6px!important}
+@media (max-width:560px){.ry .ry-shop__item>:not(.ry-zoom){margin-left:18px!important;margin-right:18px!important}}
+
+/* ---------- Promotion / photo cards: consistent inner padding ---------- */
+.ry .ry-promo-card{overflow:hidden;border-radius:6px}
+.ry .ry-promo-card [class*="__body"]{padding:clamp(22px,2.4vw,32px)!important}
+
+/* ---------- Corporate page: keep the site fonts in the original Elementor blocks ---------- */
+body.page-id-43 .post_content .elementor-widget-text-editor,
+.post_content .elementor-widget-text-editor p,
+.post_content .elementor-button,.post_content .elementor-button-text,
+.post_content .elementor-icon-list-text,.post_content .elementor-icon-box-description{font-family:"DM Sans","Helvetica Neue",Arial,sans-serif!important}
+.post_content .elementor-button{border-radius:999px!important;letter-spacing:.01em;transition:transform .3s ease,box-shadow .3s ease,background-color .3s ease!important}
+.post_content .elementor-button:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(14,32,45,.5)}
+.post_content .elementor-icon-box-title,.post_content .elementor-icon-box-title a{font-family:"Marcellus",serif!important}
+
+/* ==========================================================================
+   Motion layer (only runs with JS; respects reduced motion)
+   ========================================================================== */
+/* headings: words rise out of a mask when the section scrolls in */
+.ry9-split .ry9-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
+.ry9-split .ry9-w>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.75,.15,1);transition-delay:var(--wd,0s)}
+.ry9-split.is-in .ry9-w>span{transform:none}
+/* kicker rule draws in */
+.ry-js .ry9-kick::before{transform:scaleX(0);transform-origin:0 50%;transition:transform .9s cubic-bezier(.7,0,.2,1) .1s}
+.ry-js .ry9-kick.is-in::before{transform:scaleX(1)}
+/* generic fade-up for anything we tag */
+.ry-js .ry9-up{opacity:0;transform:translate3d(0,30px,0);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.ry-js .ry9-up.is-in{opacity:1;transform:none}
+/* soft scale-in for images inside cards */
+.ry-js .ry9-img img{transform:scale(1.12);opacity:.001;transition:transform 1.6s cubic-bezier(.2,.7,.2,1),opacity .9s ease}
+.ry-js .ry9-img.is-in img{transform:none;opacity:1}
+/* parallax images (transform set by JS on a wrapper-free basis) */
+.ry9-par{will-change:transform}
+/* 3D tilt cards */
+.ry9-tilt{transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.ry9-tilt.is-tilting{transition:transform .08s linear}
+/* stars light up one by one */
+.ry-js .ry9-stars{display:inline-flex;gap:4px;letter-spacing:0!important}
+.ry-js .ry9-stars i{font-style:normal;opacity:.2;transform:scale(.6);display:inline-block;transition:opacity .4s ease,transform .5s cubic-bezier(.3,1.6,.5,1);transition-delay:var(--sd,0s)}
+.ry-js .ry9-stars.is-in i{opacity:1;transform:none}
+/* animated underline on text links inside content */
+.ry .ry-lead a,.ry .ry-link,.ry p a{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .45s ease,color .3s ease}
+.ry .ry-lead a:hover,.ry .ry-link:hover,.ry p a:hover{background-size:100% 1px}
+/* primary buttons: arrow nudge + glow */
+.ry .ry-btn:not(.ry-btn--ghost){box-shadow:0 10px 26px -16px rgba(220,155,66,.9)}
+.ry .ry-btn:not(.ry-btn--ghost):hover{box-shadow:0 18px 34px -16px rgba(220,155,66,.95)}
+/* section seam: thin gold line grows across the top of navy sections */
+.ry.ry--navy{position:relative}
+.ry-js .ry.ry--navy.ry9-seam::after{content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(246,178,85,.65),transparent);transform:scaleX(0);transition:transform 1.6s cubic-bezier(.7,0,.2,1)}
+.ry-js .ry.ry--navy.ry9-seam.is-in::after{transform:scaleX(1)}
+/* hall capacity boxes pop in */
+.ry-js .ry9-pop{opacity:0;transform:scale(.92);transition:opacity .7s ease,transform .8s cubic-bezier(.3,1.4,.5,1);transition-delay:var(--d,0s)}
+.ry-js .ry9-pop.is-in{opacity:1;transform:none}
+/* floating accent on CTA seals and icons */
+.ry9-float{animation:ry9-float 6s ease-in-out infinite}
+@keyframes ry9-float{50%{transform:translateY(-8px) rotate(-3deg)}}
+/* shimmer pass over gold buttons every few seconds */
+.ry .ry-btn:not(.ry-btn--ghost)::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);animation:ry9-shine 5.5s ease-in-out infinite;pointer-events:none}
+@keyframes ry9-shine{0%,70%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+
+@media (prefers-reduced-motion:reduce){
+  .ry9-split .ry9-w>span,.ry-js .ry9-up,.ry-js .ry9-img img,.ry-js .ry9-pop,.ry-js .ry9-stars i{transform:none!important;opacity:1!important;transition:none!important}
+  .ry-js .ry9-kick::before,.ry-js .ry.ry--navy.ry9-seam::after{transform:none!important;transition:none!important}
+  .ry9-float,.ry .ry-btn::before{animation:none!important}
+  .ry9-tilt,.ry .ry-reviews blockquote,.ry .ry-shop__item{transform:none!important;transition:none!important}
+}
+.ry .ry-reviews .ry9-stars i,.ry .ry-reviews .ry-stars i{color:#C9861F!important}.ry.ry--navy .ry-reviews .ry9-stars i{color:#F6B255!important}
+
+/* ---------- SVG icon system (replaces Unicode glyph icons) ---------- */
+.ry-ico{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex:none;overflow:visible;pointer-events:none}
+button>.ry-ico:only-child,a>.ry-ico:only-child,span>.ry-ico:only-child{vertical-align:middle}
+.ry-ico-wrap{display:inline-flex;vertical-align:-.12em;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+a:hover .ry-ico-wrap,a:focus-visible .ry-ico-wrap{transform:translateX(4px)}
+a:hover .ry-ico-wrap .ry-ico--arrow-up-right,a:focus-visible .ry-ico-wrap .ry-ico--arrow-up-right{transform:translate(1px,-1px)}
+/* menu dropdown chevrons */
+.ry-submenu-toggle .ry-ico{width:15px;height:15px;transition:transform .3s ease}
+.ry-submenu-toggle[aria-expanded="true"] .ry-ico,li:hover>.ry-submenu-toggle .ry-ico,li:focus-within>.ry-submenu-toggle .ry-ico{transform:rotate(180deg)}
+/* arrow buttons (carousels, viewer, hero slider) */
+.ry-carousel__nav button .ry-ico,.ry-slider-button .ry-ico,.rg-lb button .ry-ico{width:20px;height:20px}
+.ry-slider-pause .ry-ico{width:16px;height:16px}
+/* quantity steppers */
+.ry-qty button{display:inline-grid;place-items:center}
+.ry-qty button .ry-ico{width:16px;height:16px}
+/* stars */
+.ry-stars{display:inline-flex;align-items:center;gap:3px;letter-spacing:0!important}
+.ry-stars .ry-ico{width:16px;height:16px}
+.ry-reviews .ry9-stars i{display:inline-flex}
+/* gallery enlarge badge, back-to-top, card arrows */
+.rg-tile__zoom .ry-ico{width:18px;height:18px}
+.trx_addons_scroll_to_top .ry-ico{width:18px;height:18px}
+.trx_addons_scroll_to_top::before{content:none!important}
+.ry-wwd__go .ry-ico{width:18px;height:18px}
+.ry-event-tile .ry-ico,.ry-route-link .ry-ico,.ry-card__go .ry-ico{width:16px;height:16px}
+/* buttons: icon spacing */
+.ry-btn .ry-ico{width:1.05em;height:1.05em}
+.ry-btn>span[aria-hidden] .ry-ico{margin-left:2px}
+/* back-to-top button: SVG arrow centred */
+.trx_addons_scroll_to_top{display:grid!important;place-items:center}
+/* Font Awesome replacements on the Corporate page */
+.ry-ico--fa{width:1.1em;height:1.1em;vertical-align:-.18em}
+.elementor-icon-list-icon .ry-ico--fa{width:16px;height:16px;color:inherit}
+.elementor-accordion-icon .ry-ico--fa{width:16px;height:16px}
+/* theme icon replacements on the Social Events page */
+.sc_icons_icon .ry-ico--theme{width:52px;height:52px;stroke-width:1.4}
+.sc_icons_icon{display:inline-grid!important;place-items:center;color:var(--ry-gold-deep,#DC9B42)}
+.sc_icons_icon:before,.sc_icons_icon span:before{content:none!important}
+/* theme icon boxes: show the SVG above the decorative blob */
+.sc_icons_icon>span{opacity:1!important;position:relative!important;inset:auto!important;z-index:2;display:grid!important;place-items:center;width:100%;height:100%}
+.sc_icons_icon .sc_icons_decoration_bg{z-index:1}
+/* Elementor forces fill on icon SVGs; keep line icons as outlines */
+svg.ry-ico[fill="none"],svg.ry-ico[fill="none"] *:not(circle[fill]){fill:none!important}
+svg.ry-ico[fill="none"]{stroke:currentColor!important}
+.elementor-icon-list-icon svg.ry-ico{fill:none!important}
+.sc_icons_icon .ry-ico--theme{color:#A86F24!important;stroke:#A86F24!important;stroke-width:1.5}
+.sc_icons_icon>span.sc_icon_type_{z-index:3!important}.sc_icons_icon>.sc_icons_decoration_bg{z-index:0!important}
+
+/* ==========================================================================
+   v11 – hero headline: calm fade-up (no clipping mask), correct order
+   ========================================================================== */
+.ry-js .ry-hero .ry-h1 .ry-w{overflow:visible!important;padding-bottom:0!important;margin-bottom:0!important}
+.ry-js .ry-hero .ry-h1 .ry-w>span{opacity:0;transform:translate3d(0,.32em,0)!important;transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)!important;transition-delay:var(--d,0s)!important}
+.ry-js .ry-hero.is-in .ry-h1 .ry-w>span{opacity:1;transform:none!important}
+.ry-js .ry-hero.is-in .ry-crumbs,.ry-js .ry-hero.is-in .ry-kicker{transition-delay:.05s!important}
+.ry-js .ry-hero.is-in .ry-lead{transition-delay:.7s!important}
+.ry-js .ry-hero.is-in .ry-actions{transition-delay:.85s!important}
+
+/* ---------- Home banner: the client's original "About Us" box ---------- */
+.ry-hero--home .ry-h1{max-width:none}
+.ry-hero__about{max-width:420px;margin-top:clamp(28px,4vw,44px);padding:20px 22px 22px;border-top:2px solid var(--ry-gold,#F6B255);
+  background:rgba(8,20,29,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:0 0 6px 6px}
+.ry-hero__about-link{display:inline-flex;align-items:center;gap:10px;font:500 13px/1.3 "DM Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ry-gold,#F6B255)!important;text-decoration:none!important;margin-bottom:10px}
+.ry-hero__about-link .ry-ico{width:16px;height:16px}
+.ry-hero__about-link:hover .ry-ico-wrap,.ry-hero__about-link:focus-visible .ry-ico-wrap{transform:translateY(3px)!important}
+.ry-hero__about-link:focus-visible{outline:2px solid var(--ry-gold,#F6B255);outline-offset:4px;border-radius:2px}
+.ry-hero__about p{margin:0;color:rgba(255,255,255,.92);font:400 17px/1.6 "DM Sans",sans-serif}
+@media (min-width:1100px){
+  .ry-hero--home .ry-hero__inner .ry-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,420px);column-gap:clamp(40px,6vw,96px);align-items:end}
+  .ry-hero--home .ry-h1{grid-column:1;grid-row:1}
+  .ry-hero--home .ry-actions{grid-column:1;grid-row:2}
+  .ry-hero--home .ry-hero__about{grid-column:2;grid-row:1/span 2;align-self:end;margin-top:0;margin-bottom:6px}
+}
+.ry-js .ry-hero .ry-hero__about{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.ry-js .ry-hero.is-in .ry-hero__about{opacity:1;transform:none;transition-delay:1.05s}
+html{scroll-behavior:smooth}
+#about,#contact{scroll-margin-top:96px}
+@media (prefers-reduced-motion:reduce){
+  .ry-js .ry-hero .ry-h1 .ry-w>span,.ry-js .ry-hero .ry-hero__about{opacity:1!important;transform:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* v11 – banner entrance with keyframes so the order is always: label, headline, text, button, About box */
+@keyframes ry11-up{from{opacity:0;transform:translate3d(0,22px,0)}to{opacity:1;transform:none}}
+@keyframes ry11-word{from{opacity:0;transform:translate3d(0,.32em,0)}to{opacity:1;transform:none}}
+.ry-js .ry-hero .ry-h1 .ry-w>span{transition:none!important;opacity:0}
+.ry-js .ry-hero.is-in .ry-h1 .ry-w>span{animation:ry11-word 1s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.ry-js .ry-hero.is-in .ry-crumbs,.ry-js .ry-hero.is-in .ry-kicker{transition:none!important;animation:ry11-up .8s cubic-bezier(.2,.7,.2,1) .05s both}
+.ry-js .ry-hero.is-in .ry-lead{transition:none!important;animation:ry11-up .9s cubic-bezier(.2,.7,.2,1) .7s both}
+.ry-js .ry-hero.is-in .ry-actions{transition:none!important;animation:ry11-up .9s cubic-bezier(.2,.7,.2,1) .85s both}
+.ry-js .ry-hero.is-in .ry-hero__about{transition:none!important;animation:ry11-up 1s cubic-bezier(.2,.7,.2,1) 1.05s both}
+.ry-js .ry-hero.is-in .ry-count{transition:none!important;animation:ry11-up .9s cubic-bezier(.2,.7,.2,1) 1s both}
+@media (prefers-reduced-motion:reduce){
+  .ry-js .ry-hero.is-in .ry-h1 .ry-w>span,.ry-js .ry-hero.is-in .ry-crumbs,.ry-js .ry-hero.is-in .ry-kicker,.ry-js .ry-hero.is-in .ry-lead,
+  .ry-js .ry-hero.is-in .ry-actions,.ry-js .ry-hero.is-in .ry-hero__about,.ry-js .ry-hero.is-in .ry-count{animation:none!important;opacity:1!important;transform:none!important}
+}
+
+/* ==========================================================================
+   v12 – "The Royalton Event Venue / for all occasions": client's original
+   expanding-card design (theme "QW Case" portfolio), rebuilt 1:1.
+   ========================================================================== */
+.ry-occ{padding:clamp(56px,7vw,110px) 0!important}
+.ry-occ__wrap{padding:0 50px}
+.ry-occ__title{margin:0 0 clamp(28px,3.5vw,56px);font:400 5vw/1em "Marcellus",serif!important;letter-spacing:-.23vw;color:#FCFCFC!important}
+.ry-occ__title .ry-occ__l1{display:block;text-align:right;padding-right:25px}
+.ry-occ__title .ry-occ__l2{display:block;text-align:left;padding-left:calc(25px + 9%);margin-top:.02em}
+/* the row of cards */
+.ry-occ__list{display:flex;margin:0 -10px}
+.ry-occ__item{flex:0 1 auto;width:45%;padding:0 10px;overflow:hidden;transition:width .6s cubic-bezier(.65,0,.35,1)}
+.ry-occ__item.is-active{width:100%}
+.ry-occ__inner{position:relative;display:flex;align-items:flex-end;height:620px;text-decoration:none!important;color:inherit}
+.ry-occ__img{position:absolute;top:0;left:0;right:0;width:100%;height:100%;overflow:hidden;transition:height .6s cubic-bezier(.65,0,.35,1)}
+.ry-occ__img img{width:100%;height:100%;object-fit:cover;transform:scale(1.06) translateZ(0);transition:transform .9s cubic-bezier(.65,0,.35,1)}
+.ry-occ__item.is-active .ry-occ__img{height:460px}
+.ry-occ__item.is-active .ry-occ__img img{transform:scale(1) translateZ(0)}
+.ry-occ__content{display:block;width:100%;transition:all .4s ease}
+.ry-occ__cat{display:block;margin:0 0 .2em;font:400 13px/1.4 "DM Sans",sans-serif;text-transform:uppercase;letter-spacing:.6px;color:#C9D1D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ry-occ__name{margin:0 0 .7em!important;font:400 1.944em/1.5em "Marcellus",serif!important;color:#FCFCFC!important;overflow:hidden;height:1.5em}
+.ry-occ__name{position:relative}
+.ry-occ__item .ry-occ__name{text-indent:0}
+.ry-occ__item .ry-occ__name::after{content:none}
+.ry-occ__name>*{display:inline}
+.ry-occ__item:not(.is-active) .ry-occ__name{color:transparent!important}
+.ry-occ__item .ry-occ__name{transform:translateY(0)}
+.ry-occ__item .ry-occ__name{transition:color .2s ease}
+.ry-occ__more{display:inline-flex;align-items:center;gap:7px;font:400 18px/1.2em "DM Sans",sans-serif;color:#FCFCFC;border-bottom:1px solid #FCFCFC;padding-bottom:3px;opacity:0;transition:opacity .5s cubic-bezier(.65,0,.35,1)}
+.ry-occ__more .ry-ico{width:12px;height:12px;position:relative;top:-3px}
+.ry-occ__item.is-active .ry-occ__more{opacity:1;transition-delay:.4s}
+.ry-occ__inner:focus-visible{outline:3px solid #F6B255;outline-offset:4px}
+/* title slides up into view on the active card, like the original */
+.ry-occ__name .ry-occ__nm{display:block;position:relative;top:1.3em;transition:top .6s cubic-bezier(.65,0,.35,1)}
+.ry-occ__item.is-active .ry-occ__name{color:#FCFCFC!important}
+.ry-occ__item.is-active .ry-occ__name .ry-occ__nm{top:0;transition-delay:.1s}
+/* breakpoints from the original theme */
+@media (max-width:1439px){.ry-occ__inner{height:400px}.ry-occ__item.is-active .ry-occ__img{height:290px}.ry-occ__name{font-size:1.4em!important;margin-bottom:.3em!important}.ry-occ__more{font-size:15px}}
+@media (max-width:1279px){.ry-occ__wrap{padding:0 30px}.ry-occ__inner{height:325px}.ry-occ__item.is-active .ry-occ__img{height:210px}.ry-occ__title{font-size:7vw!important}}
+@media (max-width:767px){
+  .ry-occ__wrap{padding:0 6%}
+  .ry-occ__title{font-size:9vw!important}
+  .ry-occ__title .ry-occ__l1{text-align:left;padding-right:0}
+  .ry-occ__title .ry-occ__l2{padding-left:0}
+  .ry-occ__list{display:block;margin:0 -10px;line-height:0}
+  .ry-occ__item,.ry-occ__item.is-active{display:inline-block;vertical-align:top;width:50%;padding:0 10px 20px;line-height:normal}
+  .ry-occ__item:nth-child(odd):last-child{width:100%}
+  .ry-occ__inner{height:250px}
+  .ry-occ__item .ry-occ__img,.ry-occ__item.is-active .ry-occ__img{height:155px}
+  .ry-occ__item .ry-occ__img img{transform:none}
+  .ry-occ__item .ry-occ__name,.ry-occ__item:not(.is-active) .ry-occ__name{color:#FCFCFC!important;font-size:1.15em!important}
+  .ry-occ__item .ry-occ__name .ry-occ__nm{top:0}
+  .ry-occ__item .ry-occ__more{opacity:1;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.ry-occ__item,.ry-occ__img,.ry-occ__img img,.ry-occ__name .ry-occ__nm,.ry-occ__more{transition:none!important}}
+@media (max-width:767px){.ry-occ__name,.ry-occ__item .ry-occ__name{height:auto!important;line-height:1.3em!important;margin-bottom:.5em!important}.ry-occ__inner{height:auto;min-height:250px;flex-direction:column;justify-content:flex-end}.ry-occ__item .ry-occ__img,.ry-occ__item.is-active .ry-occ__img{position:relative;height:155px;margin-bottom:14px}}
+@media (max-width:767px){.ry-occ__inner{justify-content:flex-start!important}}
+
+/* ==========================================================================
+   v13 – "What we do / The Royalton Event Space": client's original layout
+   (3-column intro, list in the right two-thirds, + icons, cursor-following photo)
+   ========================================================================== */
+.ry-wwd2{position:relative;overflow:visible!important}
+.ry-wwd2__wrap{padding:0 50px}
+.ry-wwd2__top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;align-items:start}
+.ry-wwd2__title .ry-kicker{text-transform:uppercase}
+.ry-wwd2__title .ry-h2{font-size:clamp(36px,3.3vw,56px)!important;line-height:1.08!important;margin:0!important}
+.ry-wwd2__text{text-align:right}
+.ry-wwd2__text p{margin:0;font:400 17px/1.75 "DM Sans",sans-serif;color:#D2D3D5}
+.ry-wwd2__text p strong{color:#FCFCFC;font-weight:700}
+.ry-wwd2__more{margin-top:20px}
+.ry-wwd2__bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:30px}
+.ry-wwd2__list{border-top:1px solid rgba(224,218,211,.55);margin-top:50px;padding-top:50px}
+.ry-wwd2__item{display:flex;align-items:center;justify-content:space-between;gap:50px;padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid #35414B;text-decoration:none!important;color:#FCFCFC}
+.ry-wwd2__item:last-child{margin-bottom:0}
+.ry-wwd2__name{margin:0!important;font:400 35px/1.25 "Marcellus",serif!important;color:#FCFCFC!important;transition:color .35s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.ry-wwd2__icon{display:inline-grid;place-items:center;flex:0 0 auto;color:#FCFCFC;transition:color .35s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.ry-wwd2__icon .ry-ico{width:23px;height:23px}
+.ry-wwd2__item:hover .ry-wwd2__name,.ry-wwd2__item:focus-visible .ry-wwd2__name{color:rgba(252,252,252,.55)!important}
+.ry-wwd2__item:hover .ry-wwd2__icon,.ry-wwd2__item:focus-visible .ry-wwd2__icon{color:#F6B255;transform:rotate(90deg)}
+.ry-wwd2__item:focus-visible{outline:2px solid #F6B255;outline-offset:6px}
+/* cursor-following photo (the original "mouse helper" image) */
+.ry-wwd2__cursor{position:fixed;left:0;top:0;width:260px;height:320px;pointer-events:none;z-index:60;opacity:0;
+  transform:translate3d(-9999px,-9999px,0);transition:opacity .35s ease;border-radius:4px;overflow:hidden;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.ry-wwd2__cursor img{width:100%;height:100%;object-fit:cover;transform:scale(.88);transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .25s ease}
+.ry-wwd2__cursor.is-on{opacity:1}
+.ry-wwd2__cursor.is-on img{transform:scale(1)}
+.ry-wwd2__cursor img.is-swap{opacity:.25}
+/* tablet / mobile, following the original breakpoints */
+@media (max-width:1023px){
+  .ry-wwd2__wrap{padding:0 30px}
+  .ry-wwd2__top{grid-template-columns:1fr 1fr}
+  .ry-wwd2__top .ry-wwd2__gap{display:none}
+  .ry-wwd2__bottom{grid-template-columns:1fr}
+  .ry-wwd2__bottom .ry-wwd2__gap{display:none}
+  .ry-wwd2__list{margin-top:30px;padding-top:30px}
+  .ry-wwd2__item{padding-bottom:24px;margin-bottom:24px}
+  .ry-wwd2__name{font-size:30px!important}
+  .ry-wwd2__cursor{display:none}
+}
+@media (max-width:767px){
+  .ry-wwd2__wrap{padding:0 6%}
+  .ry-wwd2__top{grid-template-columns:1fr;gap:20px}
+  .ry-wwd2__text{text-align:left}
+  .ry-wwd2__item{gap:15px;padding-bottom:20px;margin-bottom:20px}
+  .ry-wwd2__name{font-size:26px!important}
+}
+@media (prefers-reduced-motion:reduce){.ry-wwd2__cursor,.ry-wwd2__cursor img,.ry-wwd2__icon,.ry-wwd2__name{transition:none!important}}
+.ry-wwd2__wrap{max-width:1390px;margin:0 auto}.ry-wwd2__icon .ry-ico{stroke-width:1.5}
+
+/* v14 – "for all occasions" heading entrance (no clipping) + opposite-line drift */
+@keyframes ry-occ-in-r{from{opacity:0;transform:translate3d(70px,.25em,0)}to{opacity:1;transform:none}}
+@keyframes ry-occ-in-l{from{opacity:0;transform:translate3d(-70px,.25em,0)}to{opacity:1;transform:none}}
+.ry-occ__title--anim .ry-occ__w{display:inline-block;opacity:0}
+.ry-occ__title--anim.is-in .ry-occ__l1 .ry-occ__w{animation:ry-occ-in-r 1.15s cubic-bezier(.2,.75,.15,1) var(--wd,0s) both}
+.ry-occ__title--anim.is-in .ry-occ__l2 .ry-occ__w{animation:ry-occ-in-l 1.15s cubic-bezier(.2,.75,.15,1) var(--wd,0s) both}
+.ry-occ__title--anim .ry-occ__l1{transform:translate3d(calc(var(--drift,0px) * -1),0,0);transition:transform .25s linear;will-change:transform}
+.ry-occ__title--anim .ry-occ__l2{transform:translate3d(var(--drift,0px),0,0);transition:transform .25s linear;will-change:transform}
+/* thin gold rule that draws under the heading once it has arrived */
+.ry-occ__title--anim{position:relative}
+.ry-occ__title--anim::after{content:"";display:block;height:1px;margin-top:clamp(18px,2vw,30px);background:linear-gradient(90deg,transparent,rgba(246,178,85,.7),transparent);transform:scaleX(0);transform-origin:50% 50%;transition:transform 1.4s cubic-bezier(.7,0,.2,1) 1.1s}
+.ry-occ__title--anim.is-in::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.ry-occ__title--anim .ry-occ__w{opacity:1;animation:none!important}.ry-occ__title--anim .ry-occ__l1,.ry-occ__title--anim .ry-occ__l2{transform:none}}
