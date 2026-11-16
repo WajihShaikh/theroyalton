@@ -1,0 +1,82 @@
+/* Royalton v17: precise corporate page layout fixes. Intentionally scoped. */
+/* Three distinct editorial photos with controlled image cropping and easy-to-read text. */
+.ry-corp-eventcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,27px)}
+.ry-corp-eventcard{position:relative;display:flex;align-items:end;overflow:hidden;isolation:isolate;min-height:370px;aspect-ratio:4/4.6;background:#122b38;border-radius:14px;text-decoration:none!important;box-shadow:0 12px 38px rgba(8,31,41,.12);transition:transform .28s ease,box-shadow .28s ease}
+.ry-corp-eventcard::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(5,18,25,.02) 12%,rgba(4,21,30,.25) 40%,rgba(3,16,25,.94) 100%);pointer-events:none}
+.ry-corp-eventcard>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;max-width:none!important;transform:scale(1);transition:transform .75s cubic-bezier(.2,.8,.2,1);filter:saturate(.92)}
+.ry-corp-eventcard:nth-child(1)>img{object-position:48% 35%}
+.ry-corp-eventcard:nth-child(2)>img{object-position:50% 53%}
+.ry-corp-eventcard:nth-child(3)>img{object-position:50% 42%}
+.ry-corp-eventcard:hover,.ry-corp-eventcard:focus-visible{transform:translateY(-5px);box-shadow:0 18px 48px rgba(8,31,41,.23)}
+.ry-corp-eventcard:hover>img,.ry-corp-eventcard:focus-visible>img{transform:scale(1.065)}
+.ry-corp-eventcard:focus-visible{outline:3px solid #c79543;outline-offset:4px}
+.ry-corp-eventcard__content{position:relative;z-index:1;padding:clamp(24px,2.5vw,38px);width:100%;color:#fff!important}
+.ry-corp-eventcard__content h3{color:#fff!important;font:400 clamp(25px,2.35vw,37px)/1.1 var(--ry-display,Georgia,serif)!important;letter-spacing:-.025em;margin:0 0 13px!important;text-wrap:balance}
+.ry-corp-eventcard__content p{color:rgba(255,255,255,.88)!important;font:400 15px/1.7 var(--ry-body,Arial,sans-serif)!important;margin:0 0 21px!important;max-width:36ch}
+.ry-corp-eventcard__content>span{display:inline-flex;align-items:center;gap:8px;color:#f3c77c!important;font:650 12px/1.4 var(--ry-body,Arial,sans-serif)!important;letter-spacing:.065em;text-transform:uppercase}
+.ry-corp-eventcard__content>span svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.ry-corp-eventcard:hover .ry-corp-eventcard__content>span svg{transform:translateX(4px)}
+/* Editorial contact section: the information, photography, and form read as one cohesive component. */
+.ry-corp-enquiry{background:#f7f4ee!important;padding:clamp(56px,7vw,104px) 24px!important;margin:0!important;position:relative;isolation:isolate}
+.ry-corp-enquiry__wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);max-width:1240px;margin:0 auto;background:#fff;border:1px solid #e7dfd3;border-radius:18px;box-shadow:0 22px 75px rgba(18,35,43,.095);overflow:hidden;align-items:stretch}
+.ry-corp-enquiry__story{background:#0f2a39;color:#fff!important;display:flex;flex-direction:column;min-width:0}
+.ry-corp-enquiry__photo{width:100%;height:260px;background-image:linear-gradient(180deg,transparent 65%,#102a39),url('../../../uploads/royalton/ballroom-crystal-chandeliers.webp');background-position:center 48%;background-repeat:no-repeat;background-size:cover}
+.ry-corp-enquiry__story-copy{padding:clamp(28px,4vw,56px);flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.ry-corp-enquiry__story h2{font:400 clamp(31px,3.25vw,48px)/1.14 var(--ry-display,Georgia,serif)!important;color:#fff!important;letter-spacing:-.02em;margin:0 0 19px;text-wrap:balance}
+.ry-corp-enquiry__story p{font:400 clamp(15px,1.15vw,17px)/1.75 var(--ry-body,Arial,sans-serif)!important;color:#d9e3e5!important;margin:0 0 26px}
+.ry-corp-enquiry__benefits{list-style:none!important;margin:0!important;padding:24px 0 0!important;border-top:1px solid #ffffff37;display:grid;gap:17px}
+.ry-corp-enquiry__benefits li{font:500 14px/1.5 var(--ry-body,Arial,sans-serif);color:#fff!important;display:flex;align-items:flex-start;gap:12px;padding:0!important;list-style:none!important}
+.ry-corp-enquiry__benefits svg{width:20px;height:20px;flex:0 0 20px;fill:none;stroke:#edbc72;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2;transform:translateY(1px)}
+.ry-corp-enquiry__panel{background:#fff;padding:clamp(30px,4vw,55px);min-width:0}
+.ry-corp-enquiry__panel-head{margin-bottom:25px}
+.ry-corp-enquiry__panel-head h3{font:400 clamp(26px,2.5vw,38px)/1.18 var(--ry-display,Georgia,serif)!important;letter-spacing:-.02em!important;margin:0 0 10px!important;color:#152d38!important}
+.ry-corp-enquiry__panel-head p{margin:0!important;font:400 15px/1.65 var(--ry-body,Arial,sans-serif)!important;color:#68625d!important;max-width:47ch}
+.ry-corp-enquiry .ry-corp-enquiry__form{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 16px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;width:100%!important;max-width:none!important}
+.ry-corp-enquiry__hidden{display:none!important}
+.ry-corp-enquiry__field{min-width:0;display:flex;flex-direction:column;gap:8px;margin:0!important;padding:0!important}
+.ry-corp-enquiry__field--full{grid-column:1/-1}
+.ry-corp-enquiry__field label{font:650 12px/1.35 var(--ry-body,Arial,sans-serif)!important;color:#263640!important;letter-spacing:.025em;margin:0!important}
+.ry-corp-enquiry__field label span{color:#ae7534!important}
+.ry-corp-enquiry__form .ry-corp-enquiry__field :is(input,select,textarea){box-sizing:border-box!important;display:block!important;width:100%!important;max-width:none!important;min-width:0!important;min-height:46px!important;padding:12px 14px!important;margin:0!important;background:#f9f8f5!important;color:#17303d!important;border:1px solid #dcd9d2!important;border-radius:8px!important;box-shadow:none!important;font:400 14px/1.5 var(--ry-body,Arial,sans-serif)!important;letter-spacing:0!important;outline:none!important;transition:border-color .2s ease,box-shadow .2s ease}
+.ry-corp-enquiry__form .ry-corp-enquiry__field input::placeholder,.ry-corp-enquiry__form .ry-corp-enquiry__field textarea::placeholder{color:#7d7a74!important;opacity:1}
+.ry-corp-enquiry__form .ry-corp-enquiry__field :is(input,select,textarea):focus{border-color:#bb8747!important;box-shadow:0 0 0 3px #c99d5833!important;outline:0!important}
+.ry-corp-enquiry__form .ry-corp-enquiry__field textarea{min-height:110px!important;resize:vertical}
+.ry-corp-enquiry__form .ry-corp-enquiry__field select{cursor:pointer}
+.ry-corp-enquiry__submit{grid-column:1/-1;display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:7px}
+.ry-corp-enquiry__submit button{display:inline-flex!important;align-items:center;justify-content:center;gap:11px;min-height:49px;padding:14px 23px!important;border:1px solid #c89651!important;border-radius:7px!important;background:#c99652!important;color:#142f3b!important;font:750 13px/1.3 var(--ry-body,Arial,sans-serif)!important;letter-spacing:.015em!important;cursor:pointer;transition:background .2s ease,transform .2s ease}
+.ry-corp-enquiry__submit button:hover{background:#efc37e!important;transform:translateY(-2px)}
+.ry-corp-enquiry__submit button:focus-visible{outline:3px solid #c89651;outline-offset:3px}
+.ry-corp-enquiry__submit button:disabled{opacity:.65;cursor:progress}
+.ry-corp-enquiry__submit button svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ry-corp-enquiry__submit>span{font:400 12px/1.4 var(--ry-body,Arial,sans-serif);color:#706b64}
+.ry-corp-enquiry__form .ry-form-note{grid-column:1/-1;margin:0!important;border-radius:8px!important}
+/* Seven independent items. The featured last item spans two columns; no duplicated icons or broken column. */
+.ry-corp-special{background:#faf7f2;padding:clamp(66px,7vw,104px) 24px!important}
+.ry-corp-special__inner{max-width:1260px;margin:0 auto}
+.ry-corp-special header{text-align:center;max-width:760px;margin:0 auto clamp(36px,4vw,56px)}
+.ry-corp-special header h2{font:400 clamp(33px,4.1vw,56px)/1.15 var(--ry-display,Georgia,serif)!important;color:#132b37!important;letter-spacing:-.024em;margin:0 0 17px!important;text-wrap:balance}
+.ry-corp-special header p{font:400 16px/1.75 var(--ry-body,Arial,sans-serif)!important;color:#65625f!important;margin:0 auto!important;max-width:650px}
+.ry-corp-special__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.ry-corp-special__item{position:relative;min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(23px,2.8vw,33px);border:1px solid #e4ddd1;border-radius:12px;background:#fff;color:#15303e!important;text-decoration:none!important;min-height:235px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.ry-corp-special__item:hover,.ry-corp-special__item:focus-visible{transform:translateY(-4px);box-shadow:0 18px 36px #182e3d1b;border-color:#c7a475}
+.ry-corp-special__item:focus-visible{outline:3px solid #c99753;outline-offset:3px}
+.ry-corp-special__item--wide{grid-column:span 2;background:#102d3b;color:#fff!important;border-color:#102d3b}
+.ry-corp-special__icon{width:48px;height:48px;display:grid;place-items:center;background:#f8efe2;color:#97672d!important;border:1px solid #ebdcc8;border-radius:12px;margin-bottom:19px;flex:0 0 auto}
+.ry-corp-special__icon svg{width:26px;height:26px}
+.ry-corp-special__item--wide .ry-corp-special__icon{background:#314959;color:#eac17e!important;border-color:#53646d}
+.ry-corp-special__item h3{font:400 clamp(20px,1.85vw,26px)/1.2 var(--ry-display,Georgia,serif)!important;letter-spacing:-.014em;color:#132b36!important;margin:0 0 9px!important;text-wrap:balance}
+.ry-corp-special__item p{font:400 13px/1.6 var(--ry-body,Arial,sans-serif)!important;color:#5e6668!important;margin:0 0 18px!important;max-width:34ch}
+.ry-corp-special__item--wide h3,.ry-corp-special__item--wide p{color:#fff!important}
+.ry-corp-special__item--wide p{color:#d7e1e2!important}
+.ry-corp-special__link{display:inline-flex;align-items:center;gap:7px;font:650 11px/1.4 var(--ry-body,Arial,sans-serif);letter-spacing:.065em;text-transform:uppercase;color:#a06f35!important;margin-top:auto}
+.ry-corp-special__item--wide .ry-corp-special__link{color:#f1c47d!important}
+.ry-corp-special__link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:1050px){.ry-corp-enquiry__wrap{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.ry-corp-enquiry__panel{padding:30px}.ry-corp-enquiry__story-copy{padding:32px}.ry-corp-eventcard{min-height:330px}}
+@media(max-width:900px){.ry-corp-special__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ry-corp-eventcards{gap:14px}.ry-corp-eventcard{aspect-ratio:4/5.3;min-height:310px}.ry-corp-eventcard__content{padding:22px}.ry-corp-eventcard__content h3{font-size:26px}.ry-corp-eventcard__content p{font-size:13px}}
+@media(max-width:760px){.ry-corp-enquiry{padding:56px 18px!important}.ry-corp-enquiry__wrap{grid-template-columns:1fr}.ry-corp-enquiry__story{display:grid;grid-template-columns:34% 66%}.ry-corp-enquiry__photo{height:100%;min-height:330px;background-position:48% center}.ry-corp-enquiry__story-copy{padding:32px}.ry-corp-enquiry__story h2{font-size:29px}.ry-corp-enquiry__panel{padding:32px}.ry-corp-eventcards{grid-template-columns:1fr;gap:17px}.ry-corp-eventcard{aspect-ratio:16/10;min-height:280px}.ry-corp-eventcard__content h3{font-size:30px}.ry-corp-eventcard__content p{font-size:14px}}
+@media(max-width:560px){.ry-corp-enquiry{padding:44px 14px!important}.ry-corp-enquiry__wrap{border-radius:13px}.ry-corp-enquiry__story{display:block}.ry-corp-enquiry__photo{height:165px;min-height:0}.ry-corp-enquiry__story-copy{padding:28px 25px 31px}.ry-corp-enquiry__story h2{font-size:30px}.ry-corp-enquiry__story p{font-size:14px;margin-bottom:22px}.ry-corp-enquiry__benefits{gap:12px;padding-top:19px!important}.ry-corp-enquiry__benefits li{font-size:13px}.ry-corp-enquiry__panel{padding:30px 21px 33px}.ry-corp-enquiry__panel-head h3{font-size:28px}.ry-corp-enquiry .ry-corp-enquiry__form{grid-template-columns:1fr}.ry-corp-enquiry__field,.ry-corp-enquiry__field--full{grid-column:1/-1}.ry-corp-enquiry__submit button{width:100%}.ry-corp-enquiry__submit>span{width:100%;text-align:center}.ry-corp-special{padding:58px 16px!important}.ry-corp-special__grid{gap:11px}.ry-corp-special__item{padding:20px 18px;min-height:220px}.ry-corp-special__item h3{font-size:20px}.ry-corp-special__item p{font-size:12px}.ry-corp-eventcard{aspect-ratio:4/4.15;min-height:310px}}
+@media(max-width:380px){.ry-corp-special__grid{grid-template-columns:1fr}.ry-corp-special__item--wide{grid-column:auto}.ry-corp-eventcard__content{padding:23px}.ry-corp-eventcard__content h3{font-size:29px}}
+@media(prefers-reduced-motion:reduce){.ry-corp-eventcard,.ry-corp-eventcard>img,.ry-corp-special__item,.ry-corp-enquiry__submit button{transition:none!important;transform:none!important}}
+/* The exported theme hides native selects while waiting for a WordPress Select2 initializer.
+   This standalone form must always expose its own accessible native select. */
+.ry-corp-enquiry .ry-corp-enquiry__form .ry-corp-enquiry__field select{visibility:visible!important;opacity:1!important;appearance:auto!important;-webkit-appearance:menulist!important}
